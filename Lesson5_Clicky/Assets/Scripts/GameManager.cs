@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public GameObject titleScreen;
     public Button restartButton;
     public bool isGameActive;
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         StartCoroutine(SpawnTarget());
         scoreText.text = "Score: " + score;
+        titleScreen.gameObject.SetActive(false);
     }
 
     IEnumerator SpawnTarget()
