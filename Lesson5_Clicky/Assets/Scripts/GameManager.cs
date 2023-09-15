@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,5 +49,11 @@ public class GameManager : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         isGameActive = false;
+    }
+
+    public void RestartGame()
+    {
+        // can just put the name of the scene you want to load in the parentheses if you know the name
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
