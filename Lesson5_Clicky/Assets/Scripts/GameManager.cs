@@ -10,11 +10,15 @@ public class GameManager : MonoBehaviour
     private int score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public bool isGameActive;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTarget());
+        // initialize variables before you use them
+        //if i had initialized isGameActive after the StartCoroutine(method), the game will break
+        isGameActive = true;
         score = 0;
+        StartCoroutine(SpawnTarget());
         scoreText.text = "Score: " + score;
     }
 
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnTarget()
     {
-        while (true)
+        while (isGameActive)
         {
             yield return new WaitForSeconds(spawnRate);
             int index = Random.Range(0, targets.Count);
