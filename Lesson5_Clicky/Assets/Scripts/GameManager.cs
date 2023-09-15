@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
         // initialize variables before you use them
         //if i had initialized isGameActive after the StartCoroutine(method), the game will break
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnTarget());
         scoreText.text = "Score: " + score;
         titleScreen.gameObject.SetActive(false);
+        spawnRate /= difficulty;
     }
 
     IEnumerator SpawnTarget()
