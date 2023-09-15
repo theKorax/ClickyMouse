@@ -17,18 +17,23 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // initialize variables before you use them
-        //if i had initialized isGameActive after the StartCoroutine(method), the game will break
-        isGameActive = true;
-        score = 0;
-        StartCoroutine(SpawnTarget());
-        scoreText.text = "Score: " + score;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        // initialize variables before you use them
+        //if i had initialized isGameActive after the StartCoroutine(method), the game will break
+        isGameActive = true;
+        score = 0;
+        StartCoroutine(SpawnTarget());
+        scoreText.text = "Score: " + score;
     }
 
     IEnumerator SpawnTarget()
