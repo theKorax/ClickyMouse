@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         // initialize variables before you use them
         //if i had initialized isGameActive after the StartCoroutine(method), the game will break
         isGameActive = true;
+        scoreText.gameObject.SetActive(true);
         score = 0;
         StartCoroutine(SpawnTarget());
         scoreText.text = "Score: " + score;
